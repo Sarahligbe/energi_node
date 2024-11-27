@@ -34,6 +34,5 @@ EXPOSE 49797
 
 # Copy entrypoint script
 COPY entrypoint.sh /home/energiuser/entrypoint.sh
-RUN chmod +x /home/energiuser/entrypoint.sh
 
 ENTRYPOINT ["/home/energiuser/entrypoint.sh"]
