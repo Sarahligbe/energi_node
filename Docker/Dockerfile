@@ -3,7 +3,7 @@ FROM ubuntu:24.10 AS downloader
 
 # Install necessary tools for downloading and checksum verification
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    curl gnupg ca-certificates libusb-1.0-0 && \
+    curl gnupg ca-certificates && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Create non-root user and set up data directory

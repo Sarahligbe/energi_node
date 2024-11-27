@@ -9,7 +9,7 @@ if [ -z "$EXT_IP" ]; then
 fi
 
 # Execute the Energi node with dynamic IP
-exec /home/energiuser/energi3/bin/energi3 \
+exec energi3 \
     --datadir /home/energiuser/.energicore3 \
     --gcmode archive \
     --maxpeers 128 \
