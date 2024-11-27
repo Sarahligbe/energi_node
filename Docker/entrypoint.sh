@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Fetch the external IP address
-EXT_IP=$(wget -qO- https://api.ipify.org)
+EXT_IP=$(curl -s https://api.ipify.org)
 
 if [ -z "$EXT_IP" ]; then
     echo "Failed to fetch external IP address."
