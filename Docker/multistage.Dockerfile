@@ -23,7 +23,6 @@ RUN curl -LO "https://s3-us-west-2.amazonaws.com/download.energi.software/releas
     && echo "${ENERGI_CHECKSUM}  energi3-${ENERGI_VERSION}-linux-amd64.tgz" | sha256sum -c - \
     && tar xzf energi3-${ENERGI_VERSION}-linux-amd64.tgz \
     && mv energi3-${ENERGI_VERSION}-linux-amd64 energi3 \
-    && ls -al energi3 \
     && rm energi3-${ENERGI_VERSION}-linux-amd64.tgz
 
 # Expose P2P port (TCP and UDP)
@@ -34,4 +33,4 @@ EXPOSE 49797/udp
 COPY --chown=energiuser:energiuser entrypoint.sh .
 RUN chmod +x entrypoint.sh
 
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["entrypoint.sh"]
