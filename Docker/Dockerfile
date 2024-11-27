@@ -3,12 +3,12 @@ FROM ubuntu:24.10 AS downloader
 
 # Install necessary tools for downloading and checksum verification
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    curl gnupg ca-certificates && \
+    curl gnupg ca-certificates libusb-1.0-0 && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Create non-root user and set up data directory
 RUN addgroup energiuser && adduser energiuser --ingroup energiuser --disabled-password && \
-    mkdir -p /home/energiuser/.energicore3/testnet && \
+    mkdir -p /home/energiuser/.energicore3 && \
     chown -R energiuser:energiuser /home/energiuser/.energicore3
 
 # Switch to non-root user
