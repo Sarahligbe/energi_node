@@ -14,6 +14,8 @@ RUN addgroup energiuser && adduser energiuser --ingroup energiuser --disabled-pa
 # Switch to non-root user
 USER energiuser
 
+WORKDIR /home/energiuser
+
 # Set Energi version and checksum
 ENV ENERGI_VERSION=v1.1.8
 ENV ENERGI_CHECKSUM="6dad5d8d9d7190ca822a3779b334fa5b36da174518f9b51f09658af0a6364c02"
