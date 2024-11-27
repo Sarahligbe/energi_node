@@ -34,7 +34,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Create non-root user and group
-RUN addgroup energiuser && adduser energiuser --ingroup energiuser --disabled-password && \
+RUN addgroup energiuser && adduser energiuser --ingroup energiuser --disabled-password \
     && mkdir -p /home/energiuser/.energicore3 \
     && chown -R energiuser:energiuser /home/energiuser
 
