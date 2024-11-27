@@ -29,6 +29,7 @@ FROM ubuntu:24.10
 # Install minimal runtime dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
+    gnupg \
     ca-certificates \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
