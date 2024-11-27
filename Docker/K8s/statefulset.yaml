@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: energi_node
+  labels:
+    app: energi
+spec:
+  serviceName: "energi"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: energi
+  template:
+    metadata:
+      labels:
+        app: energi
+    spec:
+      containers:
+      - name: energi
+        image: energi_node:latest
+        ports:
+        - containerPort: 49797
+          name: p2p
+        resources:
+          requests:
+            memory: "2Gi"
+            cpu: "1"
+          limits:
+            memory: "4Gi"
+            cpu: "2"
+        volumeMounts:
+        - name: energi_data
+          mountPath: /home/energi/.energicore3
+        securityContext:
+          runAsUser: 1000
+          runAsGroup: 1000
+          allowPrivilegeEscalation: false
+        livenessProbe:
+          tcpSocket:
+            port: 49797
+          initialDelaySeconds: 60
+          periodSeconds: 30
+        readinessProbe:
+          tcpSocket:
+            port: 49797
+          initialDelaySeconds: 10
+          periodSeconds: 10
+  volumeClaimTemplates:
+  - metadata:
+      name: energi_data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 100Gi
+      storageClassName: standard

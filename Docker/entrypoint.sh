@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Fetch the external IP address
 EXT_IP=$(curl -s https://api.ipify.org)
@@ -14,6 +14,7 @@ exec /home/energiuser/energi3/bin/energi3 \
     --gcmode archive \
     --maxpeers 128 \
     --masternode \
+    --nousb \
     --mine=1 \
     --nat extip:$EXT_IP \
     --verbosity 3
