@@ -1,6 +1,6 @@
 #Example using the IAM setup
 module "ci_iam" {
-  source          = "./path/to/module"
+  source          = "./modules/iam"
 
   name            = "prod-ci"
   enable_suffix   = true
