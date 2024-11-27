@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Fetch the external IP address
 EXT_IP=$(curl -s https://api.ipify.org)
@@ -8,8 +8,8 @@ if [ -z "$EXT_IP" ]; then
     exit 1
 fi
 
-# Execute the Energi node with dynamic IP
-exec energi3 \
+# Execute the Energi node
+exec /home/energiuser/energi3/bin/energi3 \
     --datadir /home/energiuser/.energicore3 \
     --gcmode archive \
     --maxpeers 128 \
