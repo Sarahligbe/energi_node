@@ -70,6 +70,6 @@ resource "aws_iam_user" "this" {
 
 # Add user to group
 resource "aws_iam_user_group_membership" "this" {
-  users   = [aws_iam_user.this.name]
-  group = aws_iam_group.this.name
+  user   = aws_iam_user.this.name
+  groups = [aws_iam_group.this.name]
 }
