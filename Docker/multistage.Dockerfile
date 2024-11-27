@@ -29,8 +29,7 @@ RUN curl -LO "https://s3-us-west-2.amazonaws.com/download.energi.software/releas
 EXPOSE 49797/tcp
 EXPOSE 49797/udp
 
-# Copy and set entrypoint
-COPY --chown=energiuser:energiuser entrypoint.sh .
-RUN chmod +x entrypoint.sh
+# Copy entrypoint script
+COPY entrypoint.sh /home/energiuser/entrypoint.sh
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/home/energiuser/entrypoint.sh"]
