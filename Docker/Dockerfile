@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Create non-root user and set up directory structure
-RUN addgroup -S energigroup && adduser -S energiuser -G energigroup
+RUN addgroup -S energigroup && adduser -S energiuser -G energigroup && \
     mkdir -p /home/energiuser/energi3/bin /home/energiuser/energi3/js && \
     chown -R energiuser:energiuser /home/energiuser/energi3
 
