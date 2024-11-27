@@ -6,7 +6,7 @@ spec:
   selector:
     app: energi
   ports:
-  - port: 49797
+  - port: 39797
     targetPort: p2p
     name: p2p
   clusterIP: None

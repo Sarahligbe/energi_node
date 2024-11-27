@@ -19,7 +19,7 @@ spec:
       - name: energi
         image: energi_node:latest
         ports:
-        - containerPort: 49797
+        - containerPort: 39797
           name: p2p
         resources:
           requests:
@@ -37,12 +37,12 @@ spec:
           allowPrivilegeEscalation: false
         livenessProbe:
           tcpSocket:
-            port: 49797
+            port: 39797
           initialDelaySeconds: 60
           periodSeconds: 30
         readinessProbe:
           tcpSocket:
-            port: 49797
+            port: 39797
           initialDelaySeconds: 10
           periodSeconds: 10
   volumeClaimTemplates:

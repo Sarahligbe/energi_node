@@ -30,7 +30,7 @@ RUN curl -LO https://s3-us-west-2.amazonaws.com/download.energi.software/release
     && rm energi3-${ENERGI_VERSION}-linux-amd64.tgz
 
 # Expose necessary ports for TCP and UDP
-EXPOSE 49797
+EXPOSE 39797
 
 # Copy entrypoint script
 COPY entrypoint.sh /home/energiuser/entrypoint.sh
