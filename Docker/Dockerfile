@@ -6,10 +6,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl gnupg ca-certificates && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Set up non-root user and required directories
+# Create non-root user and set up directory structure
 RUN useradd -ms /bin/bash energiuser && \
-    mkdir -p /home/energiuser/energi3 && /home/energiuser/energi3/bin && /home/energiuser/energi3/js\
-    chown -R energi:energi /home/energiuser/energi3
+    mkdir -p /home/energiuser/energi3/bin /home/energiuser/energi3/js && \
+    chown -R energiuser:energiuser /home/energiuser/energi3
 
 # Switch to non-root user
 USER energiuser
