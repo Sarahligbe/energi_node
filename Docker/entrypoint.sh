@@ -10,6 +10,7 @@ fi
 
 # Execute the Energi node with dynamic IP
 exec /home/energiuser/energi3/bin/energi3 --testnet \
+    --datadir /home/energiuser/.energicore3/testnet \
     --gcmode archive \
     --maxpeers 128 \
     --masternode \

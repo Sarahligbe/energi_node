@@ -6,10 +6,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl gnupg ca-certificates && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Create non-root user and set up directory structure
+# Create non-root user and set up data directory
 RUN addgroup energiuser && adduser energiuser --ingroup energiuser --disabled-password && \
-    mkdir -p /home/energiuser/energi3/bin /home/energiuser/energi3/js && \
-    chown -R energiuser:energiuser /home/energiuser/energi3
+    mkdir -p /home/energiuser/.energicore3/testnet
+    chown -R energiuser:energiuser /home/energiuser/.energicore3
 
 # Switch to non-root user
 USER energiuser
@@ -27,6 +27,7 @@ RUN curl -LO https://s3-us-west-2.amazonaws.com/download.energi.software/release
     && echo "${ENERGI_CHECKSUM}  energi3-${ENERGI_VERSION}-linux-amd64.tgz" | sha256sum -c - || exit 1 \
     && echo "Checksum verified. Extracting files..." \
     && tar xzf energi3-${ENERGI_VERSION}-linux-amd64.tgz \
+    && mv energi3-${ENERGI_VERSION}-linux-amd64 energi3
     && rm energi3-${ENERGI_VERSION}-linux-amd64.tgz
 
 # Expose necessary ports for TCP and UDP
