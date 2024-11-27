@@ -9,11 +9,11 @@ if [ -z "$EXT_IP" ]; then
 fi
 
 # Execute the Energi node
-exec /home/energiuser/energi3/bin/energi3 \
-    --datadir /home/energiuser/.energicore3 \
-    --gcmode archive \
-    --maxpeers 128 \
-    --masternode \
-    --mine=1 \
-    --nat extip:$EXT_IP \
-    --verbosity 3
+#exec /home/energiuser/energi3/bin/energi3 \
+#    --datadir /home/energiuser/.energicore3 \
+#    --gcmode archive \
+#    --maxpeers 128 \
+#    --masternode \
+#    --mine=1 \
+#    --nat extip:$EXT_IP \
+#    --verbosity 3
