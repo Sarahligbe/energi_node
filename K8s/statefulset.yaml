@@ -17,6 +17,13 @@ spec:
       labels:
         app: energi
     spec:
+      initContainers:
+      - name: fix-permissions
+        image: busybox
+        command: ["sh", "-c", "chown -R 1001:1001 /home/energiuser/.energicore3"]
+        volumeMounts:
+          - name: energi-data
+            mountPath: /home/energiuser/.energicore3
       containers:
       - name: energi
         image: sayaligbe/energi_node:latest
@@ -37,6 +44,7 @@ spec:
         securityContext:
           runAsUser: 1001
           runAsGroup: 1001
+          fsGroup: 1001
         livenessProbe:
           tcpSocket:
             port: 39797
