@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Create non-root user and set up data directory
-RUN addgroup energiuser && adduser energiuser --ingroup energiuser --disabled-password && \
+RUN addgroup --gid 1000 energiuser && adduser --uid 1000 energiuser --ingroup energiuser --disabled-password && \
     mkdir -p /home/energiuser/.energicore3 && \
     chown -R energiuser:energiuser /home/energiuser/.energicore3
 
