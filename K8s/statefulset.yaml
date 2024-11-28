@@ -35,8 +35,8 @@ spec:
         - name: energi-data
           mountPath: /home/energiuser/.energicore3
         securityContext:
-          runAsUser: 1000
-          runAsGroup: 1000
+          runAsUser: 1001
+          runAsGroup: 1001
           allowPrivilegeEscalation: false
         livenessProbe:
           tcpSocket:
