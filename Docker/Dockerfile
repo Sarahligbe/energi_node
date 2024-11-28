@@ -33,6 +33,7 @@ RUN curl -LO https://s3-us-west-2.amazonaws.com/download.energi.software/release
 EXPOSE 39797
 
 # Copy entrypoint script
-COPY entrypoint.sh /home/energiuser/entrypoint.sh
+COPY --chown=energiuser:energiuser entrypoint.sh /home/energiuser/entrypoint.sh
+RUN chmod +x entrypoint.sh
 
 ENTRYPOINT ["/home/energiuser/entrypoint.sh"]
