@@ -7,6 +7,8 @@ metadata:
 spec:
   serviceName: "energi"
   replicas: 1
+  updateStrategy:
+    type: RollingUpdate
   selector:
     matchLabels:
       app: energi
@@ -17,7 +19,8 @@ spec:
     spec:
       containers:
       - name: energi
-        image: energi_node:latest
+        image: sayaligbe/energi_node:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 39797
           name: p2p
@@ -30,7 +33,7 @@ spec:
             cpu: "2"
         volumeMounts:
         - name: energi_data
-          mountPath: /home/energi/.energicore3
+          mountPath: /home/energiuser/.energicore3
         securityContext:
           runAsUser: 1000
           runAsGroup: 1000
@@ -53,4 +56,4 @@ spec:
       resources:
         requests:
           storage: 150Gi
-      storageClassName: standard
+      storageClassName: gp2
