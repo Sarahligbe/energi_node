@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: energi_node
+  name: energi-node
   labels:
     app: energi
 spec:
@@ -32,7 +32,7 @@ spec:
             memory: "4Gi"
             cpu: "2"
         volumeMounts:
-        - name: energi_data
+        - name: energi-data
           mountPath: /home/energiuser/.energicore3
         securityContext:
           runAsUser: 1000
@@ -50,7 +50,7 @@ spec:
           periodSeconds: 10
   volumeClaimTemplates:
   - metadata:
-      name: energi_data
+      name: energi-data
     spec:
       accessModes: [ "ReadWriteOnce" ]
       resources:
