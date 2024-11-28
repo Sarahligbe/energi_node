@@ -37,7 +37,6 @@ spec:
         securityContext:
           runAsUser: 1001
           runAsGroup: 1001
-          allowPrivilegeEscalation: false
         livenessProbe:
           tcpSocket:
             port: 39797
